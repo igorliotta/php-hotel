@@ -100,7 +100,7 @@ var_dump($hotel['parking']);
         echo 'NO';
        } ?> </td>
       <td> <?php echo $hotel['vote']; ?> </td>
-      <td> <?php echo $hotel['distance_to_center']; ?> </td>
+      <td> <?php echo $hotel['distance_to_center']; ?> km</td>
 
     </tr>
     <?php } ?>
