@@ -42,12 +42,12 @@
 
     // var_dump($hotels);
 
-    foreach($hotels as $hotel) {
-        foreach($hotel as $key => $value) {
-            echo $key;
-            echo $value;
-        }
-    }
+    // foreach($hotels as $hotel) {
+    //     foreach($hotel as $key => $value) {
+    //         echo $key;
+    //         echo $value;
+    //     }
+    // }
 ?>
 
 <ul>
@@ -67,3 +67,58 @@
     }
 }?>
 </ul>
+<hr>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>PHP Hotel</title>
+</head>
+<body>
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+    <?php 
+        foreach($hotel as $key => $value) {
+    ?>
+      <th class="text-uppercase" scope="col"><?php echo $key; ?></th>
+      <?php 
+    }
+?>
+    </tr>
+  </thead>
+  <tbody>
+  <?php 
+      foreach($hotels as $hotel) {
+    ?>
+    <tr>
+    <?php 
+        foreach($hotel as $key => $value) {
+    ?>
+      <td><?php echo $value ?></td>
+      <?php 
+    }
+?>
+    </tr>
+    <?php 
+}?>
+    <!-- <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr> -->
+  </tbody>
+</table>
+</body>
+</html>
