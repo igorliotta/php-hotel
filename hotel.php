@@ -39,18 +39,9 @@
         ],
 
     ];
-
-    // var_dump($hotels);
-
-    // foreach($hotels as $hotel) {
-    //     foreach($hotel as $key => $value) {
-    //         echo $key;
-    //         echo $value;
-    //     }
-    // }
 ?>
 
-<ul>
+<!-- <ul>
     <?php 
       foreach($hotels as $hotel) {
         foreach($hotel as $key => $value) {
@@ -69,6 +60,10 @@
 </ul>
 <hr>
 
+<?php
+var_dump($hotel['parking']);
+?> -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,6 +75,7 @@
 </head>
 <body>
 
+<div class="container-sm text-center my-5 py-5">
 <table class="table table-dark table-striped">
   <thead>
     <tr>
@@ -89,36 +85,27 @@
       <th class="text-uppercase" scope="col"><?php echo $key; ?></th>
       <?php 
     }
-?>
+    ?>
     </tr>
   </thead>
   <tbody>
-  <?php 
-      foreach($hotels as $hotel) {
-    ?>
+  <?php foreach($hotels as $hotel) { ?>
     <tr>
-    <?php 
-        foreach($hotel as $key => $value) {
-    ?>
-      <td><?php echo $value ?></td>
-      <?php 
-    }
-?>
+      <td> <?php echo $hotel['name']; ?> </td>
+      <td> <?php echo $hotel['description']; ?> </td>
+      <td> <?php
+       if($hotel['parking'] === true) {
+        echo 'SI';
+       } else {
+        echo 'NO';
+       } ?> </td>
+      <td> <?php echo $hotel['vote']; ?> </td>
+      <td> <?php echo $hotel['distance_to_center']; ?> </td>
+
     </tr>
-    <?php 
-}?>
-    <!-- <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr> -->
+    <?php } ?>
   </tbody>
 </table>
+</div>
 </body>
 </html>
