@@ -1,6 +1,10 @@
 <?php
 
-    $hotels = [
+$has_parking = isset($_GET['has_parking']) ? true : false;
+
+// var_dump($has_parking);
+
+$hotels = [
 
         [
             'name' => 'Hotel Belvedere',
@@ -58,9 +62,9 @@
     }
 }?>
 </ul>
-<hr>
+<hr> -->
 
-<?php
+<!-- <?php
 var_dump($hotel['parking']);
 ?> -->
 
@@ -75,8 +79,16 @@ var_dump($hotel['parking']);
 </head>
 <body>
 
+
 <div class="container-sm text-center my-5 py-5">
-<table class="table table-dark table-striped">
+
+<form action="" method="GET" class="my-5 py-5">
+   <input id="has_parking" <?php echo $has_parking ? 'checked' : ''; ?> type="checkbox" name="has_parking" >
+   <label for="has_parking">Ha il parcheggio</label>
+   <input type="submit" value="Filtra">
+</form>
+
+<table class="table table-dark table-striped my-5 py-5">
   <thead>
     <tr>
     <?php 
@@ -89,7 +101,9 @@ var_dump($hotel['parking']);
     </tr>
   </thead>
   <tbody>
-  <?php foreach($hotels as $hotel) { ?>
+  <?php foreach($hotels as $hotel) {
+    if ($hotel['parking'] === $has_parking || !$has_parking) {
+    ?>
     <tr>
       <td> <?php echo $hotel['name']; ?> </td>
       <td> <?php echo $hotel['description']; ?> </td>
@@ -101,11 +115,17 @@ var_dump($hotel['parking']);
        } ?> </td>
       <td> <?php echo $hotel['vote']; ?> </td>
       <td> <?php echo $hotel['distance_to_center']; ?> km</td>
-
-    </tr>
-    <?php } ?>
+    </tr>  
+    <?php 
+        }
+    } 
+    ?>
   </tbody>
 </table>
+
+
+
+
 </div>
 </body>
 </html>
